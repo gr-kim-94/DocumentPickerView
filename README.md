@@ -32,14 +32,14 @@ class ViewModel: ObservableObject {
 var body: some View {
     ZStack {
         Button {
-            isDocumentPresented = true
+            viewModel.isDocumentPresented = true
         } label: {
             Image("Upload")
                 .foregroundColor(.primary_80_100)
                 .frame(width: 44, height: 44)
         }
     }
-    .fullScreenCover(isPresented: $isDocumentPresented) {
+    .fullScreenCover(isPresented: $viewModel.isDocumentPresented) {
         DocumentPickerView(isPresented: $viewModel.isDocumentPresented, data: $viewModel.selectedFileData)
     }
 }
